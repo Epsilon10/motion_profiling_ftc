@@ -12,7 +12,7 @@
 
   We have 
 
-  $$ S_L, S_R$$ = left distance and right distance
+  $ S_L, S_R$ = left distance and right distance
 
   $r$ = turn radius from inner wheel
 
@@ -56,11 +56,11 @@
 
   **Mecanum Kinematics**
 
-  Each wheel has an additional x and y velocity component due to the vehicles rotational velocity $$\omega_v$$ given by
+  Each wheel has an additional x and y velocity component due to the vehicles rotational velocity $\omega_v$ given by
 
   $$V_xr = -Y_n \cdot \omega_v$$
 
-  $$V_yr = X_n \cdot \omega_v$$
+  $$V_yr = X_n \cdot \omega_v​$$
 
   The total linear velocity given by the vector componenets is
 
