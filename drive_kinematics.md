@@ -14,17 +14,17 @@
 
   $$ S_L, S_R$$ = left distance and right distance
 
-  $$r$$ = turn radius from inner wheel
+  $r$ = turn radius from inner wheel
 
-  $$b$$ = track width
+  $b$ = track width
 
-  $$\theta$$ is turn in radians
+  $\theta$ is turn in radians
 
-  $$S_L = r \theta$$
+  $S_L = r \theta$
 
-  $$S_R = (r + b)\theta$$
+  $S_R = (r + b)\theta$
 
-  $$S_M = (r + b/2)\theta$$
+  $S_M = (r + b/2)\theta$
 
   We are now interested in how the x and y coordinates and heading change with respect to time.
 
@@ -44,7 +44,7 @@
 
   $$\theta(t) = \frac{(V_R - V_L)t}{b} + \theta_0$$
 
-  The velocity of the robot is the average of tHe two wheels: $$ \frac{(V_R - V_L)}{2}$$
+  The velocity of the robot is the average of tHe two wheels: $ \frac{(V_R - V_L)}{2}$
 
   We now have the following differential equations:
 
