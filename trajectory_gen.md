@@ -35,7 +35,7 @@ It is simple to represent $s(t)$ as arclength as a function of time
 $$
 s(t) = \int^{t}_0 |r'(\tau)|\, d\tau = \int^{t}_0 \sqrt{(\frac{dx}{d\tau})^2 + (\frac{dy}{d\tau})^2} \, d\tau
 $$
-We can numerically integrate this and much resulting arc lengths to times
+We can numerically integrate this and match resulting arc lengths to times
 
 
 
