@@ -25,7 +25,7 @@ where $0 \le t \le 1$
 
 **Reparametrization to Arc Length**
 
-We now need to reparametrize all the segments into a single variable of arclength ($$r(t) \in [0, 1] \to s$$ )
+We now need to reparametrize all the segments into a single variable of arclength ($$t \in [0, 1] \to s$$ )
 
 $s$ is simply the displacement along the curve.
 
@@ -33,7 +33,7 @@ thus: $$|r'(s)| = 1 = \sqrt{(\frac{dx}{ds})^2 + (\frac{dy}{ds})^2}$$as 1 unit
 
 It is simple to represent $s(t)$ as arclength as a function of time
 $$
-s(t) = \int^{t}_0 |r'(\tau)|\, d\tau = \int^{t}_0 \sqrt{(\frac{dx}{d\tau})^2 + (\frac{dy}{d\tau})^2} \, d\tau
+s(t) = \int^{t}_0 |r'(\tau)|\, d\tau = \int^{t}_0 \sqrt{\left(\frac{dx}{d\tau}\right)^2 + \left(\frac{dy}{d\tau}\right)^2} \, d\tau
 $$
 We can numerically integrate this and match resulting arc lengths to times
 
@@ -62,8 +62,6 @@ $$\theta(t) = \arctan \frac{y'(t)}{x'(t)}$$
 For holonomic drive trains, we can consider the heading component to be a completely independent spline. 
 
 $$\theta'(t) = \dfrac{x'(t)y''(t) - x''(t)y'(t)}{x'(t)^2 + y'(t)^2}$$
-
-
 
 We can now calculate this derivative at $t=0$ and $t=1$
 
