@@ -37,5 +37,33 @@ s(t) = \int^{t}_0 |r'(\tau)|\, d\tau = \int^{t}_0 \sqrt{(\frac{dx}{d\tau})^2 + (
 $$
 We can numerically integrate this and match resulting arc lengths to times
 
+We can now determine $r(s)$ by composition: $r(t(s))$
 
+We can now differentiate to yield the parametrized derivative:
+$$
+r'(s) = r'(t) \cdot t'(s) = \frac{r'(t)}{s'(t)} = \frac{r'(t)}{|r'(t)|}
+$$
+We realize this makes sense as we can realize that $r'(s)$ = 1.
+
+Now let us set $s(t)$ be the state of the motion profile at time $t$.
+
+We now have
+$$
+v(t) = \frac{d}{dt}[r(s(t))] = r'(s(t))s'(t)
+$$
+**Heading**
+
+In addition to the translational motion, we also need to interpolate some type of angular motion. 
+
+For nonholonomic drive trains, we can update the heading like so:
+
+$$\theta(t) = \arctan \frac{y'(t)}{x'(t)}$$
+
+For holonomic drive trains, we can consider the heading component to be a completely independent spline. 
+
+$$\theta'(t) = \dfrac{x'(t)y''(t) - x''(t)y'(t)}{x'(t)^2 + y'(t)^2}$$
+
+
+
+We can now calculate this derivative at $t=0$ and $t=1$
 
