@@ -31,7 +31,7 @@ $s$ is simply the displacement along the curve.
 
 thus: $$|r'(s)| = 1 = \sqrt{(\frac{dx}{ds})^2 + (\frac{dy}{ds})^2}$$as 1 unit 
 
-It is simple to represent $s(t)$ as arclength as a function of time
+It is simple to represent $s(t)$ as arclength as a function of t
 $$
 s(t) = \int^{t}_0 |r'(\tau)|\, d\tau = \int^{t}_0 \sqrt{\left(\frac{dx}{d\tau}\right)^2 + \left(\frac{dy}{d\tau}\right)^2} \, d\tau
 $$
