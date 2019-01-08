@@ -1,12 +1,4 @@
-**Trajectory Generation** 
-
-Thanks Ryan Brott: https://github.com/acmerobotics/road-runner/blob/master/doc/pdf/Quintic_Splines_for_FTC.pdf 
-
-For helping me understand this topic
-
-As well as 
-
-http://www2.informatik.uni-freiburg.de/~lau/students/Sprunk2008.pdf
+*Trajectory Generation** 
 
 **Quintic Spline Trajectories**
 
@@ -65,3 +57,81 @@ $$\theta'(t) = \dfrac{x'(t)y''(t) - x''(t)y'(t)}{x'(t)^2 + y'(t)^2}$$
 
 We can now calculate this derivative at $t=0$ and $t=1$
 
+
+
+**Generating a Profile**
+
+We now want to generate a motion profile $s(t)$ = arc length traveled where t is time
+
+Satisfying maximum velocity, acceleration, and angular velocity constraints.
+
+**Forward Pass**
+
+We look at pairs of consecutive states, where the start state has already had its velocity determined. We now need to find an acceleration that is allowable at both the start and end state
+
+**Steps**
+
+- Compute the segment constraints (max vel, max acc)
+
+- If the last velocity exceeds the max velocity, we just coast at max velocity
+
+- Else, we can compute the final velocity assuming max acceleration 
+  $$
+  v_f = \sqrt{v^2 - 2a_{max}\Delta s}
+  $$
+
+- If this final velocity is under the maximum velocity, we are good and we can continue accelerating
+
+- Otherwise we want to split the segment:
+  $$
+  \Delta s_{acc} = \dfrac{v_{max}^2 - v^2}{2 a_{max}}
+  $$
+
+
+- We can then deaccelerate for $\Delta s_{acc}$, and then coast when we reach max velocity
+
+- We now repeate this process starting at the last planning point and going back
+
+- Now we want to obtain our final states, so we now need to compare forward and backward state deltas
+
+- If there is a difference in the displacements of the state, we can split the longer segment into two and add the second segment to our forward state
+
+- Lets define some terms:
+
+  $\Delta s_{f}$ , $\Delta s_{b}$ are the forward and backward displacements respectively
+
+  case $\Delta s_f > \Delta s_b$:
+
+  ​	We calculate the kinematic state after traveling $\Delta s_f - \Delta s_b$
+
+  case $ \Delta s_f < \Delta s_b $
+
+  ​	We calculate the kinematic state after traveling $\Delta s_b - \Delta s_f$
+
+
+
+  we add the resulting kinematic state to its respective state list (forward or backward).
+
+- After we establish forward and backwards consistency, we now need to calculate the end state after the alginement
+
+- We then calculate the minimum velocities at each start and end state... and if the backward state has a lower velocity than the forward state, we calculate the intersection between the two end states and add that to our final states, by using the following equation:
+  $$
+  \dfrac{v_{prev}^2 - v^2}{4a_t a_{{prev}_{t}}}
+  $$
+
+
+- Finally we want to turn the final states into time parametrized motion segments
+
+  $v$ = state velocity
+  $$
+  \Delta t = -\frac{v}{a_t} \pm \sqrt{\frac{v^2}{a^2_t} + \frac{2\Delta s}{a_t}}
+  $$
+  Note: in order to do this, we need to keep track of the displacements for each state
+
+- We now can generate a motion profile containing in which each state satisfies velocity and acceleration constraints
+
+**References**
+
+- https://github.com/acmerobotics/road-runner/blob/master/doc/pdf/Quintic_Splines_for_FTC.pdf 
+
+- http://www2.informatik.uni-freiburg.de/~lau/students/Sprunk2008.pdf

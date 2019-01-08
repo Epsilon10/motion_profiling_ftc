@@ -68,7 +68,7 @@
 
   $$V_{y_n} = V_y + V_{y_{r_n}} = V_y - X_n \cdot \omega v$$
 
-  $$\omega = \frac{V_x + V_y \cdot \tan{\theta}}{r}$$ = wheel velocity
+  $$\frac{V_x + V_y \cdot \tan{\theta}}{r}$$ = wheel velocity
 
 
 
