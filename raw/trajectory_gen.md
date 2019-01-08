@@ -104,7 +104,7 @@ We look at pairs of consecutive states, where the start state has already had it
 
   ​	We calculate the kinematic state after traveling $\Delta s_f - \Delta s_b$
 
-  case $ \Delta s_f < \Delta s_b $
+  case $\Delta s_f < \Delta s_b$:
 
   ​	We calculate the kinematic state after traveling $\Delta s_b - \Delta s_f$
 
